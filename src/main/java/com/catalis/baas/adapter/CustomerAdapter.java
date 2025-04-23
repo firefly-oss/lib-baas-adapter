@@ -5,6 +5,8 @@ import com.catalis.core.banking.accounts.interfaces.dtos.core.v1.AccountBalanceD
 import com.catalis.core.banking.accounts.interfaces.dtos.core.v1.AccountDTO;
 import com.catalis.core.customers.interfaces.dtos.person.v1.LegalPersonDTO;
 import com.catalis.core.customers.interfaces.dtos.person.v1.NaturalPersonDTO;
+import org.springframework.http.ResponseEntity;
+import reactor.core.publisher.Mono;
 
 import java.io.InputStream;
 import java.util.Date;
@@ -21,7 +23,7 @@ public interface CustomerAdapter {
      * @param legalPerson The details of the legal person to be created
      * @return The created legal person as a DTO
      */
-    LegalPersonDTO createLegalPerson(LegalPersonDTO legalPerson);
+    Mono<ResponseEntity<LegalPersonDTO>> createLegalPerson(LegalPersonDTO legalPerson);
 
     /**
      * Creates a natural person.
@@ -29,6 +31,6 @@ public interface CustomerAdapter {
      * @param legalPerson The details of the natural person to be created
      * @return The created natural person's details
      */
-    NaturalPersonDTO createNaturalPerson(NaturalPersonDTO legalPerson);
+    Mono<ResponseEntity<NaturalPersonDTO>> createNaturalPerson(NaturalPersonDTO legalPerson);
 
 }
