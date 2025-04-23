@@ -11,13 +11,12 @@
         <relativePath/>
     </parent>
 
-    <artifactId>lib-baas-treezor-impl</artifactId>
+    <artifactId>lib-baas-adapter</artifactId>
     <version>1.0.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <properties>
         <java.version>21</java.version>
-        <treezor.jdk.path>C:\Users\CarlosAlbertoSánchez\Desktop\TREEZOR\lib-sdk-treezor\target\treezor-sdk-25.04.03.jar</treezor.jdk.path>
     </properties>
 
 
