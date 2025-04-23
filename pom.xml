@@ -22,6 +22,7 @@
         <core-banking-accounts-interfaces.version>1.0.0-SNAPSHOT</core-banking-accounts-interfaces.version>
         <core-banking-cards-interfaces.version>1.0.0-SNAPSHOT</core-banking-cards-interfaces.version>
         <core-banking-payments-interfaces.version>1.0.0-SNAPSHOT</core-banking-payments-interfaces.version>
+        <common-platform-customer-mgmt-interfaces.version>1.0.0-SNAPSHOT</common-platform-customer-mgmt-interfaces.version>
 
     </properties>
 
@@ -43,6 +44,12 @@
             <groupId>com.catalis</groupId>
             <artifactId>core-banking-payments-interfaces</artifactId>
             <version>${core-banking-payments-interfaces.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.catalis</groupId>
+            <artifactId>common-platform-customer-mgmt-interfaces</artifactId>
+            <version>${common-platform-customer-mgmt-interfaces.version}</version>
         </dependency>
 
     </dependencies>
