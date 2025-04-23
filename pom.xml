@@ -17,6 +17,12 @@
 
     <properties>
         <java.version>21</java.version>
+
+        <!-- Core versions -->
+        <core-banking-accounts-interfaces.version>1.0.0-SNAPSHOT</core-banking-accounts-interfaces.version>
+        <core-banking-cards-interfaces.version>1.0.0-SNAPSHOT</core-banking-cards-interfaces.version>
+        <core-banking-payments-interfaces.version>1.0.0-SNAPSHOT</core-banking-payments-interfaces.version>
+
     </properties>
 
 
@@ -24,19 +30,19 @@
         <dependency>
             <groupId>com.catalis</groupId>
             <artifactId>core-banking-accounts-interfaces</artifactId>
-            <version>1.0.0-SNAPSHOT</version>
+            <version>${core-banking-accounts-interfaces.version}</version>
         </dependency>
 
         <dependency>
             <groupId>com.catalis</groupId>
             <artifactId>core-banking-cards-interfaces</artifactId>
-            <version>1.0.0-SNAPSHOT</version>
+            <version>${core-banking-cards-interfaces.version}</version>
         </dependency>
 
         <dependency>
             <groupId>com.catalis</groupId>
             <artifactId>core-banking-payments-interfaces</artifactId>
-            <version>1.0.0-SNAPSHOT</version>
+            <version>${core-banking-payments-interfaces.version}</version>
         </dependency>
 
     </dependencies>
