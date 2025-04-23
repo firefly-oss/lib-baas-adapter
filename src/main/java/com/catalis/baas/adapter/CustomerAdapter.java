@@ -21,16 +21,16 @@ public interface CustomerAdapter {
      * Creates a new legal person.
      *
      * @param legalPerson The details of the legal person to be created
-     * @return The created legal person as a DTO
+     * @return The externalReferenceId of the user
      */
-    Mono<ResponseEntity<LegalPersonDTO>> createLegalPerson(LegalPersonDTO legalPerson);
+    Mono<ResponseEntity<String>> createLegalPerson(LegalPersonDTO legalPerson);
 
     /**
      * Creates a natural person.
      *
      * @param legalPerson The details of the natural person to be created
-     * @return The created natural person's details
+     * @return The externalReferenceId of the user
      */
-    Mono<ResponseEntity<NaturalPersonDTO>> createNaturalPerson(NaturalPersonDTO legalPerson);
+    Mono<ResponseEntity<String>> createNaturalPerson(NaturalPersonDTO legalPerson);
 
 }
