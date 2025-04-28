@@ -4,6 +4,7 @@ package com.catalis.baas.adapter;
 import com.catalis.core.banking.accounts.interfaces.dtos.core.v1.AccountBalanceDTO;
 import com.catalis.core.banking.accounts.interfaces.dtos.core.v1.AccountDTO;
 import com.catalis.core.customers.interfaces.dtos.FrontLegalPersonDTO;
+import com.catalis.core.customers.interfaces.dtos.FrontNaturalPersonDTO;
 import com.catalis.core.customers.interfaces.dtos.person.v1.LegalPersonDTO;
 import com.catalis.core.customers.interfaces.dtos.person.v1.NaturalPersonDTO;
 import org.springframework.http.ResponseEntity;
@@ -29,9 +30,9 @@ public interface CustomerAdapter {
     /**
      * Creates a natural person.
      *
-     * @param legalPerson The details of the natural person to be created
+     * @param naturalPerson The details of the natural person to be created
      * @return The externalReferenceId of the user
      */
-    Mono<ResponseEntity<String>> createNaturalPerson(NaturalPersonDTO legalPerson);
+    Mono<ResponseEntity<String>> createNaturalPerson(FrontNaturalPersonDTO naturalPerson);
 
 }
