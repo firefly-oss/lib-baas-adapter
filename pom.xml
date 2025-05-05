@@ -22,7 +22,7 @@
         <core-banking-accounts-interfaces.version>1.0.0-SNAPSHOT</core-banking-accounts-interfaces.version>
         <core-banking-cards-interfaces.version>1.0.0-SNAPSHOT</core-banking-cards-interfaces.version>
         <core-banking-payments-interfaces.version>1.0.0-SNAPSHOT</core-banking-payments-interfaces.version>
-        <common-platform-customer-mgmt-interfaces.version>1.0.0-SNAPSHOT</common-platform-customer-mgmt-interfaces.version>
+        <bfc-customers.version>1.0.0-SNAPSHOT</bfc-customers.version>
 
     </properties>
 
@@ -48,8 +48,8 @@
 
         <dependency>
             <groupId>com.catalis</groupId>
-            <artifactId>common-platform-customer-mgmt-interfaces</artifactId>
-            <version>${common-platform-customer-mgmt-interfaces.version}</version>
+            <artifactId>bfc-customers-interfaces</artifactId>
+            <version>${bfc-customers.version}</version>
         </dependency>
 
     </dependencies>

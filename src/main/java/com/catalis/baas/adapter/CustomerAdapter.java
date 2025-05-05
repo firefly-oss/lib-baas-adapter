@@ -1,12 +1,10 @@
 package com.catalis.baas.adapter;
 
 
+import com.catalis.bfc.customers.interfaces.dtos.FrontLegalPersonDTO;
+import com.catalis.bfc.customers.interfaces.dtos.FrontNaturalPersonDTO;
 import com.catalis.core.banking.accounts.interfaces.dtos.core.v1.AccountBalanceDTO;
 import com.catalis.core.banking.accounts.interfaces.dtos.core.v1.AccountDTO;
-import com.catalis.core.customers.interfaces.dtos.FrontLegalPersonDTO;
-import com.catalis.core.customers.interfaces.dtos.FrontNaturalPersonDTO;
-import com.catalis.core.customers.interfaces.dtos.person.v1.LegalPersonDTO;
-import com.catalis.core.customers.interfaces.dtos.person.v1.NaturalPersonDTO;
 import org.springframework.http.ResponseEntity;
 import reactor.core.publisher.Mono;
 
