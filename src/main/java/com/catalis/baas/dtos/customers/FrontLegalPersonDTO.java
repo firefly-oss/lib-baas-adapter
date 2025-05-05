@@ -1,0 +1,47 @@
+package com.catalis.baas.dtos.customers;
+
+public record FrontLegalPersonDTO(
+    // Required
+    int userTypeId,
+
+    // Required
+    int specifiedUSPerson,
+
+    // Required & unique
+    String email,
+
+    String address1,
+
+    String postcode,
+
+    String city,
+
+    String country,
+
+    String phone,
+
+    // Keep the suffix to emulate VALIDATED status
+    String lastname,
+
+    String legalName,
+
+    String legalRegistrationNumber,
+
+    String legalForm,
+
+    String legalRegistrationDate,
+
+    String legalSector,
+
+    String legalAnnualTurnOver,
+
+    String legalNetIncomeRange,
+
+    String legalNumberOfEmployeeRange,
+
+    String entityType,
+
+    int activityOutsideEu,
+
+    String accessTag
+) {}
