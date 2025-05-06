@@ -1,7 +1,7 @@
 package com.catalis.baas.adapter;
 
 
-import com.catalis.baas.dtos.documents.FrontDocumentDTO;
+import com.catalis.baas.dtos.documents.DocumentAdapterDTO;
 import org.springframework.http.ResponseEntity;
 import reactor.core.publisher.Mono;
 
@@ -16,6 +16,6 @@ public interface DocumentAdapter {
      * @param document The details of the document to be created
      * @return The externalReferenceId of the document
      */
-    Mono<ResponseEntity<String>> createDocument(FrontDocumentDTO document);
+    Mono<ResponseEntity<String>> createDocument(DocumentAdapterDTO document);
 
 }

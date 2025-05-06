@@ -3,7 +3,7 @@ package com.catalis.baas.dtos.customers;
 import lombok.Builder;
 
 @Builder
-public record FrontLegalPersonDTO(
+public record LegalPersonAdapterDTO(
     // Required
     int userTypeId,
 
