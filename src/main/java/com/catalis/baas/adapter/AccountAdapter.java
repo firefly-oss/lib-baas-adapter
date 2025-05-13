@@ -1,8 +1,11 @@
 package com.catalis.baas.adapter;
 
 
+import com.catalis.baas.dtos.accounts.AccountAdapterDTO;
 import com.catalis.core.banking.accounts.interfaces.dtos.core.v1.AccountBalanceDTO;
 import com.catalis.core.banking.accounts.interfaces.dtos.core.v1.AccountDTO;
+import org.springframework.http.ResponseEntity;
+import reactor.core.publisher.Mono;
 
 import java.io.InputStream;
 import java.util.Date;
@@ -14,56 +17,12 @@ import java.util.List;
 public interface AccountAdapter {
 
     /**
-     * Get account details for a wallet.
+     * Create a new account.
      *
-     * @param walletId The wallet ID
+     * @param accountDTO The account creation data
      * @return Account details DTO
      */
-    AccountDTO getAccountDetails(String walletId);
+    Mono<ResponseEntity<String>> createAccount(AccountAdapterDTO accountDTO);
 
-    /**
-     * Get account details PDF for a wallet.
-     *
-     * @param walletId The wallet ID
-     * @return PDF document as input stream
-     */
-    InputStream getAccountDetailsPdf(String walletId);
 
-    /**
-     * Get account statement for a wallet.
-     *
-     * @param walletId The wallet ID
-     * @param month The month (1-12)
-     * @param year The year
-     * @return List of account balances
-     */
-    List<AccountBalanceDTO> getAccountStatement(String walletId, Integer month, Integer year);
-
-    /**
-     * Get account statement PDF for a wallet.
-     *
-     * @param walletId The wallet ID
-     * @param month The month (1-12)
-     * @param year The year
-     * @return PDF document as input stream
-     */
-    InputStream getAccountStatementPdf(String walletId, Integer month, Integer year);
-
-    /**
-     * Get account balance for a wallet.
-     *
-     * @param walletId The wallet ID
-     * @return Account balance DTO
-     */
-    AccountBalanceDTO getAccountBalance(String walletId);
-
-    /**
-     * Get account transactions for a wallet.
-     *
-     * @param walletId The wallet ID
-     * @param startDate The start date for transactions
-     * @param endDate The end date for transactions
-     * @return List of account balances with transactions
-     */
-    List<AccountBalanceDTO> getAccountTransactions(String walletId, Date startDate, Date endDate);
 }

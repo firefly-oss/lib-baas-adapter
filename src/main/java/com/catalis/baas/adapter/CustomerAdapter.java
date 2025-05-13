@@ -1,6 +1,7 @@
 package com.catalis.baas.adapter;
 
 
+import com.catalis.baas.dtos.customers.KYCLivenessAdapterDTO;
 import com.catalis.baas.dtos.customers.LegalPersonAdapterDTO;
 import com.catalis.baas.dtos.customers.NaturalPersonAdapterDTO;
 import com.catalis.baas.dtos.customers.TaxResidenceAdapterDTO;
@@ -36,5 +37,29 @@ public interface CustomerAdapter {
      * @return A reactive Mono emitting a ResponseEntity containing the externalReferenceId of the tax residence.
      */
     Mono<ResponseEntity<String>> createTaxResidence(TaxResidenceAdapterDTO taxResidence);
+
+    /**
+     * Requests Know Your Customer verification for a user.
+     *
+     * @param userId The ID of the user to verify
+     * @return A reactive Mono emitting a ResponseEntity containing the response from the KYC request
+     */
+    Mono<ResponseEntity<String>> requestKYC(Integer userId);
+
+    /**
+     * Requests Know Your Business verification for a user.
+     *
+     * @param userId The ID of the user to verify
+     * @return A reactive Mono emitting a ResponseEntity containing the response from the KYB request
+     */
+    Mono<ResponseEntity<String>> requestKYB(Integer userId);
+
+    /**
+     * Performs a liveness check for KYC (Know Your Customer) verification.
+     *
+     * @param userId The ID of the user for whom the liveness check is performed
+     * @return A reactive Mono emitting a ResponseEntity containing the response from the liveness check
+     */
+    Mono<ResponseEntity<String>> kycLiveness(Integer userId, KYCLivenessAdapterDTO kycLiveness);
 
 }
