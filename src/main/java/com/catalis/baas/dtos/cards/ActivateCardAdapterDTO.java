@@ -7,6 +7,6 @@ import lombok.Builder;
  * Can be used for both physical and virtual cards.
  */
 @Builder
-public record ValidateCardAdapterDTO(
+public record ActivateCardAdapterDTO(
     String accessTag
 ) {}
