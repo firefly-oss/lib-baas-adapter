@@ -66,6 +66,12 @@ Interface for account operations with provider API.
 | `createAccount` | Creates a new account | `AccountAdapterDTO` | `Mono<ResponseEntity<String>>` |
 | `createVirtualAccount` | Creates a new virtual account | `VirtualAccountAdapterDTO` | `Mono<ResponseEntity<String>>` |
 | `walletToWalletTransfer` | Transfers funds between wallets | `W2WTransferDTO` | `Mono<ResponseEntity<String>>` |
+| `searchWallets` | Searches for wallets based on criteria | `SearchWalletAdapterDTO` | `Mono<ResponseEntity<AccountAdapterDTO>>` |
+| `deleteAccount` | Deletes an account | `Long accountId, String origin` | `Mono<ResponseEntity<String>>` |
+| `cancelTransfer` | Cancels a transfer | `Long transferId` | `Mono<ResponseEntity<String>>` |
+| `getTransfer` | Retrieves transfer information | `Long transferId` | `Mono<ResponseEntity<TransferAdapterDTO>>` |
+| `searchTransfers` | Searches for transfers based on criteria | `SearchTransferAdapterDTO` | `Mono<ResponseEntity<List<TransferAdapterDTO>>>` |
+| `getAccountBalances` | Retrieves account balances | `Long walletId, Long userId` | `Mono<ResponseEntity<List<BalanceAdapterDTO>>>` |
 
 ### AuthenticationAdapter
 
@@ -92,6 +98,12 @@ Interface for card operations with provider API.
 | `createPhysicalCard` | Creates a new physical card | `CardAdapterDTO` | `Mono<ResponseEntity<String>>` |
 | `createVirtualCard` | Creates a new virtual card | `CardAdapterDTO` | `Mono<ResponseEntity<String>>` |
 | `activateCard` | Activates a card | `Integer cardId, ActivateCardAdapterDTO` | `Mono<ResponseEntity<String>>` |
+| `setPIN` | Sets the PIN for a card | `Long cardId, PINAdapterDTO` | `Mono<ResponseEntity<String>>` |
+| `changePIN` | Changes the PIN for a card | `Long cardId, PINAdapterDTO` | `Mono<ResponseEntity<String>>` |
+| `setLimits` | Sets the limits for a card | `Long cardId, CardLimitsAdapterDTO` | `Mono<ResponseEntity<String>>` |
+| `changeStatus` | Changes the status of a card | `Long cardId, CardStatusAdapterDTO` | `Mono<ResponseEntity<String>>` |
+| `getCard` | Retrieves card information | `Long cardId` | `Mono<ResponseEntity<CardAdapterDTO>>` |
+| `searchCards` | Searches for cards based on criteria | `SearchCardAdapterDTO` | `Mono<ResponseEntity<List<CardAdapterDTO>>>` |
 
 ### CustomerAdapter
 
@@ -105,6 +117,10 @@ Interface for customer operations with provider API.
 | `requestKYC` | Requests Know Your Customer verification | `Integer userId` | `Mono<ResponseEntity<String>>` |
 | `requestKYB` | Requests Know Your Business verification | `Integer userId` | `Mono<ResponseEntity<String>>` |
 | `kycLiveness` | Performs a liveness check for KYC | `Integer userId, KYCLivenessAdapterDTO` | `Mono<ResponseEntity<String>>` |
+| `getUser` | Retrieves user information | `Long idUser` | `Mono<ResponseEntity<UserAdapterDTO>>` |
+| `deleteUser` | Deletes a user | `Long idUser, String origin` | `Mono<ResponseEntity<String>>` |
+| `editUser` | Updates user information | `Long idUser, UserAdapterDTO` | `Mono<ResponseEntity<String>>` |
+| `searchUsers` | Searches for users based on criteria | `SearchUserAdapterDTO` | `Mono<ResponseEntity<LegalPersonAdapterDTO>>` |
 
 ### DocumentAdapter
 
@@ -113,6 +129,8 @@ Interface for document operations with provider API.
 | Method | Description | Parameters | Return Type |
 |--------|-------------|------------|-------------|
 | `createDocument` | Creates a new document | `DocumentAdapterDTO` | `Mono<ResponseEntity<String>>` |
+| `getDocumentInfo` | Retrieves document information | `Long documentId` | `Mono<ResponseEntity<DocumentInfoAdapterDTO>>` |
+| `deleteDocument` | Deletes a document | `Long documentId` | `Mono<ResponseEntity<String>>` |
 
 ### PayoutAdapter
 
