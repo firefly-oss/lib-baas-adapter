@@ -3,6 +3,7 @@ package com.catalis.baas.adapter;
 
 import com.catalis.baas.dtos.accounts.AccountAdapterDTO;
 import com.catalis.baas.dtos.accounts.VirtualAccountAdapterDTO;
+import com.catalis.baas.dtos.accounts.W2WTransferDTO;
 import com.catalis.core.banking.accounts.interfaces.dtos.core.v1.AccountBalanceDTO;
 import com.catalis.core.banking.accounts.interfaces.dtos.core.v1.AccountDTO;
 import org.springframework.http.ResponseEntity;
@@ -32,5 +33,13 @@ public interface AccountAdapter {
      * @return Account details DTO
      */
     Mono<ResponseEntity<String>> createVirtualAccount(VirtualAccountAdapterDTO virtualAccountDTO);
+
+    /**
+     * Transfer funds from one wallet to another.
+     *
+     * @param w2wTransferDTO The wallet-to-wallet transfer data
+     * @return Response entity with transfer result
+     */
+    Mono<ResponseEntity<String>> walletToWalletTransfer(W2WTransferDTO w2wTransferDTO);
 
 }
