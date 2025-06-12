@@ -8,7 +8,7 @@ import lombok.Builder;
 @Builder
 public record VirtualAccountAdapterDTO(
     // Required
-    Integer walletId,
+    String walletId,
     
     // Required
     Integer typeId

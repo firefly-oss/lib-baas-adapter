@@ -6,9 +6,11 @@ import lombok.Builder;
  * DTO for wallet-to-wallet transfer operations.
  */
 @Builder
-public record W2WTransferDTO(
+public record InternalTransferDTO(
     // Required - Source wallet ID
     String walletId,
+
+    Integer transferId,
     
     // Required - Destination wallet ID
     String beneficiaryWalletId,

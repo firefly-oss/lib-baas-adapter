@@ -8,7 +8,7 @@ import java.util.List;
  * DTO for wallet search operations.
  */
 @Builder
-public record SearchWalletAdapterDTO(
+public record SearchAccountsAdapterDTO(
     String accessTag,
     Integer walletId,
     String walletStatus,
