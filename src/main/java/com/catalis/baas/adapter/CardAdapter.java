@@ -8,6 +8,7 @@ import com.catalis.baas.dtos.cards.CardStatusAdapterDTO;
 import com.catalis.baas.dtos.cards.PINAdapterDTO;
 import com.catalis.baas.dtos.cards.SearchCardAdapterDTO;
 import org.springframework.http.ResponseEntity;
+import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 import java.util.List;
 
@@ -22,7 +23,7 @@ public interface CardAdapter {
      * @param cardDTO The details of the physical card to be created
      * @return A reactive Mono emitting a ResponseEntity containing the response from the card creation
      */
-    Mono<ResponseEntity<String>> createPhysicalCard(CardAdapterDTO cardDTO);
+    Mono<ResponseEntity<CardAdapterDTO>> createPhysicalCard(CardAdapterDTO cardDTO);
 
     /**
      * Creates a new virtual card.
@@ -30,7 +31,7 @@ public interface CardAdapter {
      * @param cardDTO The details of the virtual card to be created
      * @return A reactive Mono emitting a ResponseEntity containing the response from the card creation
      */
-    Mono<ResponseEntity<String>> createVirtualCard(CardAdapterDTO cardDTO);
+    Mono<ResponseEntity<CardAdapterDTO>> createVirtualCard(CardAdapterDTO cardDTO);
 
     /**
      * Activates the given card with the specified card details.
@@ -39,7 +40,7 @@ public interface CardAdapter {
      * @param activateCardDTO The details required for card activation, including access tag information
      * @return A reactive Mono emitting a ResponseEntity containing the result of the card activation
      */
-    Mono<ResponseEntity<String>> activateCard(Integer cardId, ActivateCardAdapterDTO activateCardDTO);
+    Mono<ResponseEntity<Long>> activateCard(Long cardId, ActivateCardAdapterDTO activateCardDTO);
 
     /**
      * Sets the PIN for a card.
@@ -48,7 +49,7 @@ public interface CardAdapter {
      * @param pinDTO The PIN details including current, new, and confirmation PINs
      * @return A reactive Mono emitting a ResponseEntity containing the result of the PIN setting operation
      */
-    Mono<ResponseEntity<String>> setPIN(Long cardId, PINAdapterDTO pinDTO);
+    Mono<ResponseEntity<Long>> setPIN(Long cardId, PINAdapterDTO pinDTO);
 
     /**
      * Changes the PIN for a card.
@@ -57,7 +58,7 @@ public interface CardAdapter {
      * @param pinDTO The PIN details including current, new, and confirmation PINs
      * @return A reactive Mono emitting a ResponseEntity containing the result of the PIN change operation
      */
-    Mono<ResponseEntity<String>> changePIN(Long cardId, PINAdapterDTO pinDTO);
+    Mono<ResponseEntity<Long>> changePIN(Long cardId, PINAdapterDTO pinDTO);
 
     /**
      * Sets the limits for a card.
@@ -66,7 +67,7 @@ public interface CardAdapter {
      * @param limitsDTO The card limits details including ATM and payment limits
      * @return A reactive Mono emitting a ResponseEntity containing the result of the limits setting operation
      */
-    Mono<ResponseEntity<String>> setLimits(Long cardId, CardLimitsAdapterDTO limitsDTO);
+    Mono<ResponseEntity<Long>> setLimits(Long cardId, CardLimitsAdapterDTO limitsDTO);
 
     /**
      * Changes the status of a card.
@@ -75,7 +76,7 @@ public interface CardAdapter {
      * @param statusDTO The card status details including lock status
      * @return A reactive Mono emitting a ResponseEntity containing the result of the status change operation
      */
-    Mono<ResponseEntity<String>> changeStatus(Long cardId, CardStatusAdapterDTO statusDTO);
+    Mono<ResponseEntity<Long>> changeStatus(Long cardId, CardStatusAdapterDTO statusDTO);
 
     /**
      * Retrieves a card by ID.
@@ -91,5 +92,5 @@ public interface CardAdapter {
      * @param searchCriteria The search criteria to apply
      * @return A reactive Mono emitting a ResponseEntity containing a list of cards matching the criteria
      */
-    Mono<ResponseEntity<List<CardAdapterDTO>>> searchCards(SearchCardAdapterDTO searchCriteria);
+    Flux<ResponseEntity<CardAdapterDTO>> searchCards(SearchCardAdapterDTO searchCriteria);
 }

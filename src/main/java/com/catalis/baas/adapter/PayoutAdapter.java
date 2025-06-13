@@ -15,6 +15,6 @@ public interface PayoutAdapter {
      * @param payoutDTO The details of the payout to be created
      * @return A reactive Mono emitting a ResponseEntity containing the response from the payout creation
      */
-    Mono<ResponseEntity<String>> createPayout(PayoutAdapterDTO payoutDTO);
+    Mono<ResponseEntity<PayoutAdapterDTO>> createPayout(PayoutAdapterDTO payoutDTO);
 
 }

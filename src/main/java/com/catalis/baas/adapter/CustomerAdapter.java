@@ -8,6 +8,7 @@ import com.catalis.baas.dtos.customers.SearchUserAdapterDTO;
 import com.catalis.baas.dtos.customers.TaxResidenceAdapterDTO;
 import com.catalis.baas.dtos.customers.UserAdapterDTO;
 import org.springframework.http.ResponseEntity;
+import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 /**
@@ -21,7 +22,7 @@ public interface CustomerAdapter {
      * @param legalPerson The details of the legal person to be created
      * @return The externalReferenceId of the user
      */
-    Mono<ResponseEntity<String>> createLegalPerson(LegalPersonAdapterDTO legalPerson);
+    Mono<ResponseEntity<LegalPersonAdapterDTO>> createLegalPerson(LegalPersonAdapterDTO legalPerson);
 
     /**
      * Creates a natural person.
@@ -29,7 +30,7 @@ public interface CustomerAdapter {
      * @param naturalPerson The details of the natural person to be created
      * @return The externalReferenceId of the user
      */
-    Mono<ResponseEntity<String>> createNaturalPerson(NaturalPersonAdapterDTO naturalPerson);
+    Mono<ResponseEntity<NaturalPersonAdapterDTO>> createNaturalPerson(NaturalPersonAdapterDTO naturalPerson);
 
     /**
      * Creates a new tax residence for a user.
@@ -38,7 +39,7 @@ public interface CustomerAdapter {
      *                     including user ID, country, and taxpayer identification number.
      * @return A reactive Mono emitting a ResponseEntity containing the externalReferenceId of the tax residence.
      */
-    Mono<ResponseEntity<String>> createTaxResidence(TaxResidenceAdapterDTO taxResidence);
+    Mono<ResponseEntity<TaxResidenceAdapterDTO>> createTaxResidence(TaxResidenceAdapterDTO taxResidence);
 
     /**
      * Requests Know Your Customer verification for a user.
@@ -70,7 +71,9 @@ public interface CustomerAdapter {
      * @param idUser The ID of the user to retrieve
      * @return A reactive Mono emitting a ResponseEntity containing the user information
      */
-    Mono<ResponseEntity<UserAdapterDTO>> getUser(Long idUser);
+    Mono<ResponseEntity<NaturalPersonAdapterDTO>> getNaturalPerson(Long idUser);
+
+    Mono<ResponseEntity<LegalPersonAdapterDTO>> getLegalPerson(Long idUser);
 
     /**
      * Deletes a user by ID.
@@ -79,7 +82,7 @@ public interface CustomerAdapter {
      * @param origin The origin of the delete request
      * @return A reactive Mono emitting a ResponseEntity containing the response from the delete operation
      */
-    Mono<ResponseEntity<String>> deleteUser(Long idUser, String origin);
+    Mono<ResponseEntity<Long>> deleteUser(Long idUser, String origin);
 
     /**
      * Updates a user's information.
@@ -88,7 +91,7 @@ public interface CustomerAdapter {
      * @param user The updated user information
      * @return A reactive Mono emitting a ResponseEntity containing the response from the update operation
      */
-    Mono<ResponseEntity<String>> editUser(Long idUser, UserAdapterDTO user);
+    Mono<ResponseEntity<UserAdapterDTO>> editUser(Long idUser, UserAdapterDTO user);
 
     /**
      * Searches for users based on the provided criteria.
@@ -96,5 +99,14 @@ public interface CustomerAdapter {
      * @param searchCriteria The search criteria to apply
      * @return A reactive Mono emitting a ResponseEntity containing the search results
      */
-    Mono<ResponseEntity<LegalPersonAdapterDTO>> searchUsers(SearchUserAdapterDTO searchCriteria);
+    Flux<ResponseEntity<LegalPersonAdapterDTO>> searchLegalUsers(SearchUserAdapterDTO searchCriteria);
+
+    /**
+     * Searches for users based on the provided criteria.
+     *
+     * @param searchCriteria The search criteria to apply
+     * @return A reactive Mono emitting a ResponseEntity containing the search results
+     */
+    Flux<ResponseEntity<NaturalPersonAdapterDTO>> searchNaturalUsers(SearchUserAdapterDTO searchCriteria);
+
 }

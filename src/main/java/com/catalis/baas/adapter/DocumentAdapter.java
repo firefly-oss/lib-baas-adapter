@@ -17,7 +17,7 @@ public interface DocumentAdapter {
      * @param document The details of the document to be created
      * @return The externalReferenceId of the document
      */
-    Mono<ResponseEntity<String>> createDocument(DocumentAdapterDTO document);
+    Mono<ResponseEntity<DocumentAdapterDTO>> createDocument(DocumentAdapterDTO document);
 
     /**
      * Retrieves detailed information about a document.
@@ -25,7 +25,7 @@ public interface DocumentAdapter {
      * @param documentId The ID of the document to retrieve
      * @return A reactive Mono emitting a ResponseEntity containing the document information
      */
-    Mono<ResponseEntity<DocumentInfoAdapterDTO>> getDocumentInfo(Long documentId);
+    Mono<ResponseEntity<DocumentInfoAdapterDTO>> getDocument(Long documentId);
 
     /**
      * Deletes a document by ID.
@@ -33,6 +33,6 @@ public interface DocumentAdapter {
      * @param documentId The ID of the document to delete
      * @return A reactive Mono emitting a ResponseEntity containing the response from the delete operation
      */
-    Mono<ResponseEntity<String>> deleteDocument(Long documentId);
+    Mono<ResponseEntity<Long>> deleteDocument(Long documentId);
 
 }
