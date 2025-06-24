@@ -46,5 +46,15 @@ public record LegalPersonAdapterDTO(
 
     int activityOutsideEu,
 
-    String accessTag
+    String accessTag,
+    int controllingPersonType,
+    int employeeType,
+    int economicSanctions,
+    int residentCountriesSanctions,
+    int involvedSanctions,
+    int entitySanctionsQuestionnaire,
+    int isOnStockExchange,
+    int occupationCategory,
+    int personalAssetsRange,
+    int monthlyIncomeRange
 ) {}
