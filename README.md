@@ -47,7 +47,7 @@ Add the dependency to your Maven project:
 
 ```xml
 <dependency>
-    <groupId>com.catalis</groupId>
+    <groupId>com.firefly</groupId>
     <artifactId>lib-baas-adapter</artifactId>
     <version>1.0.0-SNAPSHOT</version>
 </dependency>
