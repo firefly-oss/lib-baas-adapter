@@ -214,7 +214,7 @@ mvn test
 
 ## 📄 License
 
-This project is proprietary software owned by Catalis.
+This project is proprietary software owned by Firefly.
 
 ## 👥 Contributing
 
@@ -222,4 +222,4 @@ For internal contributors, please follow the company's contribution guidelines.
 
 ## 📞 Support
 
-For support, please contact the development team at dev@catalis.com.
+For support, please contact the development team at dev@getfirefly.io.
